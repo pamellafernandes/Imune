@@ -1,20 +1,22 @@
 import React, { useEffect } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, View } from "react-native";
 import Animated, {
-    Easing,
-    useAnimatedStyle,
-    useSharedValue,
-    withRepeat,
-    withTiming,
+  Easing,
+  useAnimatedStyle,
+  useSharedValue,
+  withRepeat,
+  withTiming,
 } from "react-native-reanimated";
 import { ThemedView } from "./themed-view";
 
+const imuneImage = require("../assets/images/Imune.png");
+
 interface LoadingScreenProps {
-  message?: string;
+  imageUrl?: string;
 }
 
 export const LoadingScreen: React.FC<LoadingScreenProps> = ({
-  message = "IMUNE",
+  imageUrl = "imune.png",
 }) => {
   const textOpacity = useSharedValue(0.6);
   const textTranslateY = useSharedValue(0);
@@ -48,9 +50,11 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({
     <ThemedView style={styles.container}>
       <View style={styles.content}>
         <Animated.View style={textAnimatedStyle}>
-          <View style={styles.textBox}>
-            <Text style={styles.loadingText}>{message}</Text>
-          </View>
+          <Image
+            source={imuneImage}
+            style={styles.image}
+            resizeMode="contain"
+          />
         </Animated.View>
       </View>
     </ThemedView>
@@ -69,22 +73,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  textBox: {
-    backgroundColor: "#fff",
-    paddingHorizontal: 24,
-    paddingVertical: 18,
-    borderRadius: 12,
-    borderWidth: 4,
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.12,
-    shadowRadius: 12,
-    elevation: 8,
-  },
-  loadingText: {
-    fontSize: 32,
-    fontWeight: "bold",
-    lineHeight: 32,
-    color: "#E8B9F8",
-    textAlign: "center",
+
+  image: {
+    width: 180,
+    height: 180,
+    marginBottom: 24,
+    borderRadius: 24,
   },
 });
