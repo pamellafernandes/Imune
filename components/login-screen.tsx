@@ -4,12 +4,14 @@ import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
 
 import { AuthScreenLayout } from "./auth-screen-layout";
 import { LoadingScreen } from "./loading-screen";
+import { MOCK_USER, validateCredentials } from "./mock-auth";
 
 export function LoginScreen() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -18,6 +20,18 @@ export function LoginScreen() {
 
     return () => clearTimeout(timer);
   }, []);
+
+  function handleLogin() {
+    if (validateCredentials(name, password)) {
+      setErrorMessage("");
+      router.replace(
+        `/home?user=${encodeURIComponent(name.trim() || MOCK_USER.username)}`,
+      );
+      return;
+    }
+
+    setErrorMessage("Usuário ou senha incorretos. Use admin / 123456.");
+  }
 
   if (isLoading) {
     return <LoadingScreen />;
@@ -48,15 +62,18 @@ export function LoginScreen() {
         />
       </View>
 
-      <Pressable style={styles.forgotPasswordButton}>
-        <Text style={styles.forgotPasswordText}>Esqueceu a senha ?</Text>
-      </Pressable>
+      {errorMessage ? (
+        <Text style={styles.errorText}>{errorMessage}</Text>
+      ) : null}
 
-      <Pressable style={styles.primaryButton}>
+      <Pressable style={styles.primaryButton} onPress={handleLogin}>
         <Text style={styles.primaryButtonText}>Continuar</Text>
       </Pressable>
 
-      <Pressable style={styles.secondaryButton} onPress={() => router.push("/cadastro") }>
+      <Pressable
+        style={styles.secondaryButton}
+        onPress={() => router.push("/cadastro")}
+      >
         <Text style={styles.secondaryButtonText}>Criar cadastro</Text>
       </Pressable>
     </AuthScreenLayout>
@@ -91,6 +108,11 @@ const styles = StyleSheet.create({
     color: "#4B367C",
     fontSize: 14,
     textDecorationLine: "underline",
+  },
+  errorText: {
+    color: "#B00020",
+    marginBottom: 16,
+    fontSize: 14,
   },
   primaryButton: {
     backgroundColor: "#E8B9F8",
