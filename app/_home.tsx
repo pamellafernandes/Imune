@@ -1,6 +1,7 @@
 import { useLocalSearchParams } from "expo-router";
 import { SafeAreaView, StyleSheet, Text, View } from "react-native";
 
+import { BottomNav } from "@/components/bottom-nav";
 import { ThemedView } from "@/components/themed-view";
 
 export default function HomeScreen() {
@@ -21,6 +22,7 @@ export default function HomeScreen() {
             <Text style={styles.cardText}>Senha: 123456</Text>
           </View>
         </View>
+        <BottomNav />
       </SafeAreaView>
     </ThemedView>
   );
@@ -40,6 +42,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     paddingHorizontal: 24,
+    paddingBottom: 90,
   },
   title: {
     fontSize: 28,

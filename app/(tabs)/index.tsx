@@ -1,11 +1,16 @@
+import { BottomNav } from "@/components/bottom-nav";
 import { ThemedView } from "@/components/themed-view";
+import { useRouter } from "expo-router";
+import React, { useState } from "react";
 import {
-    Pressable,
-    SafeAreaView,
-    ScrollView,
-    StyleSheet,
-    Text,
-    View,
+  Modal,
+  Pressable,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from "react-native";
 
 const quickActions = [
@@ -16,6 +21,8 @@ const quickActions = [
 ];
 
 export default function HomeScreen() {
+  const router = useRouter();
+  const [menuVisible, setMenuVisible] = useState(false);
   return (
     <ThemedView style={styles.container}>
       <SafeAreaView style={styles.safeArea}>
@@ -25,12 +32,51 @@ export default function HomeScreen() {
         >
           <View style={styles.topBar}>
             <View>
-              <Text style={styles.title}>Olá Pessoa</Text>
+              <Text style={styles.title}>Olá admin</Text>
             </View>
-            <View style={styles.menuButton}>
+            <Pressable
+              style={styles.menuButton}
+              onPress={() => setMenuVisible(true)}
+              accessibilityLabel="Abrir menu"
+            >
               <Text style={styles.menuText}>≡</Text>
-            </View>
+            </Pressable>
           </View>
+
+          <Modal
+            visible={menuVisible}
+            animationType="fade"
+            transparent
+            onRequestClose={() => setMenuVisible(false)}
+          >
+            <TouchableOpacity
+              style={styles.modalOverlay}
+              activeOpacity={1}
+              onPressOut={() => setMenuVisible(false)}
+            >
+              <View style={styles.menuModal}>
+                <Pressable
+                  style={styles.menuItem}
+                  onPress={() => {
+                    setMenuVisible(false);
+                    router.push("/carteira");
+                  }}
+                >
+                  <Text style={styles.menuItemText}>Pontos de Vacinação</Text>
+                </Pressable>
+
+                <Pressable
+                  style={styles.menuItem}
+                  onPress={() => {
+                    setMenuVisible(false);
+                    router.replace("/");
+                  }}
+                >
+                  <Text style={styles.menuItemText}>Sair</Text>
+                </Pressable>
+              </View>
+            </TouchableOpacity>
+          </Modal>
 
           <View style={styles.card}>
             <Text style={styles.cardTitle}>Próxima vacina</Text>
@@ -50,6 +96,7 @@ export default function HomeScreen() {
             ))}
           </View>
         </ScrollView>
+        <BottomNav />
       </SafeAreaView>
     </ThemedView>
   );
@@ -66,7 +113,7 @@ const styles = StyleSheet.create({
   scrollContainer: {
     paddingTop: 24,
     paddingHorizontal: 20,
-    paddingBottom: 32,
+    paddingBottom: 120,
   },
   topBar: {
     flexDirection: "row",
@@ -166,5 +213,33 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     color: "#4B367C",
     textAlign: "center",
+  },
+  modalOverlay: {
+    flex: 1,
+    backgroundColor: "rgba(0,0,0,0.2)",
+    justifyContent: "flex-start",
+    alignItems: "flex-end",
+    paddingTop: 60,
+    paddingRight: 16,
+  },
+  menuModal: {
+    width: 220,
+    backgroundColor: "#FFFFFF",
+    borderRadius: 12,
+    paddingVertical: 8,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 6 },
+    shadowOpacity: 0.08,
+    shadowRadius: 12,
+    elevation: 8,
+  },
+  menuItem: {
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+  },
+  menuItemText: {
+    fontSize: 15,
+    color: "#4B367C",
+    fontWeight: "700",
   },
 });
