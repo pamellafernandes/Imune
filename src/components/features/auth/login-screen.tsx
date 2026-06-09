@@ -2,9 +2,9 @@ import { useRouter } from "expo-router";
 import { useEffect, useState } from "react";
 import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
 
-import { AuthScreenLayout } from "./auth-screen-layout";
-import { LoadingScreen } from "./loading-screen";
-import { MOCK_USER, validateCredentials } from "./mock-auth";
+import { LoadingScreen } from "@/src/components/common/loading-screen";
+import { AuthScreenLayout } from "@/src/components/layout/auth-screen-layout";
+import { MOCK_USER, validateCredentials } from "@/src/services/auth/mock-auth";
 
 export function LoginScreen() {
   const router = useRouter();
@@ -25,7 +25,7 @@ export function LoginScreen() {
     if (validateCredentials(name, password)) {
       setErrorMessage("");
       router.replace(
-        `/home?user=${encodeURIComponent(name.trim() || MOCK_USER.username)}`,
+        `/_home?user=${encodeURIComponent(name.trim() || MOCK_USER.username)}`,
       );
       return;
     }

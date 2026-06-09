@@ -8,9 +8,9 @@ import {
     View,
     type ViewProps,
 } from "react-native";
-import { ThemedView } from "./themed-view";
+import { ThemedView } from "@/src/components/ui/themed-view";
 
-const imuneImage = require("../assets/images/Imune.png");
+const imuneImage = require("@/assets/images/Imune.png");
 
 interface AuthScreenLayoutProps extends ViewProps {
   children: ReactNode;
@@ -56,34 +56,30 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   scrollContainer: {
-    flexGrow: 1,
-    alignItems: "center",
-    justifyContent: "flex-start",
-    paddingTop: 36,
-    paddingBottom: 0,
+    minHeight: "100%",
+    justifyContent: "flex-end",
   },
   header: {
-    width: "100%",
-    paddingVertical: 18,
+    height: 280,
+    justifyContent: "flex-end",
     alignItems: "center",
-    justifyContent: "center",
-    marginBottom: 8,
   },
   headerImage: {
-    width: 180,
+    width: 160,
     height: 160,
+    marginBottom: -8,
   },
   card: {
-    width: "90%",
-    maxWidth: 420,
     backgroundColor: "#FFFFFF",
-    borderRadius: 28,
-    paddingVertical: 32,
+    marginHorizontal: 16,
+    marginVertical: 32,
     paddingHorizontal: 24,
+    paddingVertical: 32,
+    borderRadius: 24,
     shadowColor: "#000",
-    shadowOffset: { width: 0, height: 10 },
-    shadowOpacity: 0.05,
-    shadowRadius: 24,
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.12,
+    shadowRadius: 20,
     elevation: 8,
   },
 });

@@ -1,15 +1,15 @@
+import { ThemedView } from "@/src/components/ui/themed-view";
 import React, { useEffect } from "react";
 import { Image, StyleSheet, View } from "react-native";
 import Animated, {
-  Easing,
-  useAnimatedStyle,
-  useSharedValue,
-  withRepeat,
-  withTiming,
+    Easing,
+    useAnimatedStyle,
+    useSharedValue,
+    withRepeat,
+    withTiming,
 } from "react-native-reanimated";
-import { ThemedView } from "./themed-view";
 
-const imuneImage = require("../assets/images/Imune.png");
+const imuneImage = require("@/assets/images/Imune.png");
 
 interface LoadingScreenProps {
   imageUrl?: string;

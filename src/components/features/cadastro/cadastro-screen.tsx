@@ -2,8 +2,8 @@ import { useRouter } from "expo-router";
 import { useEffect, useState } from "react";
 import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
 
-import { AuthScreenLayout } from "./auth-screen-layout";
-import { LoadingScreen } from "./loading-screen";
+import { LoadingScreen } from "@/src/components/common/loading-screen";
+import { AuthScreenLayout } from "@/src/components/layout/auth-screen-layout";
 
 export function CadastroScreen() {
   const router = useRouter();
@@ -79,7 +79,10 @@ export function CadastroScreen() {
         <Text style={styles.primaryButtonText}>Criar cadastro</Text>
       </Pressable>
 
-      <Pressable style={styles.secondaryButton} onPress={() => router.push("/")}>
+      <Pressable
+        style={styles.secondaryButton}
+        onPress={() => router.push("/")}
+      >
         <Text style={styles.secondaryButtonText}>Voltar ao login</Text>
       </Pressable>
     </AuthScreenLayout>
@@ -111,7 +114,7 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     paddingVertical: 16,
     alignItems: "center",
-    marginTop: 4,
+    marginBottom: 12,
   },
   primaryButtonText: {
     color: "#FFFFFF",
@@ -121,7 +124,6 @@ const styles = StyleSheet.create({
   secondaryButton: {
     alignItems: "center",
     paddingVertical: 14,
-    marginTop: 12,
   },
   secondaryButtonText: {
     color: "#4B367C",

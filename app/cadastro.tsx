@@ -1,3 +1,3 @@
-import { CadastroScreen } from "@/components/cadastro-screen";
+import { CadastroScreen } from "@/src/components/features/cadastro/cadastro-screen";
 
 export default CadastroScreen;

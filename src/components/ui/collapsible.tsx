@@ -1,10 +1,10 @@
 import { PropsWithChildren, useState } from "react";
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
 
-import { ThemedView } from "@/components/themed-view";
-import { IconSymbol } from "@/components/ui/icon-symbol";
-import { Colors } from "@/constants/theme";
-import { useColorScheme } from "@/hooks/use-color-scheme";
+import { IconSymbol } from "@/src/components/ui/icon-symbol";
+import { ThemedView } from "@/src/components/ui/themed-view";
+import { Colors } from "@/src/constants/theme";
+import { useColorScheme } from "@/src/hooks/use-color-scheme";
 
 export function Collapsible({
   children,
