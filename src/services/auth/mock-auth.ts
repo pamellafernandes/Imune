@@ -1,5 +1,5 @@
 export const MOCK_USER = {
-  username: "admin",
+  username: "Marcelo",
   password: "123456",
 };
 

@@ -72,4 +72,17 @@ export const styles = StyleSheet.create({
     fontWeight: "700",
     fontSize: 13,
   },
+
+  backButton: {
+    alignSelf: "flex-start",
+    backgroundColor: "rgba(255,255,255,0.8)",
+    paddingHorizontal: 16,
+    paddingVertical: 10,
+    borderRadius: 16,
+    marginBottom: 16,
+  },
+  backButtonText: {
+    color: "#4B367C",
+    fontWeight: "700",
+  },
 });

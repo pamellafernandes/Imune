@@ -37,6 +37,9 @@ export function CarteiraScreen() {
 
   return (
     <ThemedView style={styles.container}>
+      <Pressable style={styles.backButton} onPress={() => router.back()}>
+        <Text style={styles.backButtonText}>Voltar</Text>
+      </Pressable>
       <Text style={styles.title}>Postos de Vacinação</Text>
 
       <FlatList
@@ -55,7 +58,15 @@ export function CarteiraScreen() {
               ))}
             </View>
 
-            <Pressable style={styles.scheduleButton}>
+            <Pressable
+              style={styles.scheduleButton}
+              onPress={() => {
+                router.push({
+                  pathname: "/agendar-vacina",
+                  params: { posto: item.name },
+                });
+              }}
+            >
               <Text style={styles.scheduleButtonText}>Agendar Vacina</Text>
             </Pressable>
           </View>

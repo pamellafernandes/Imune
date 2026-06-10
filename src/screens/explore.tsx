@@ -1,21 +1,29 @@
 import { BottomNav } from "@/src/components/layout/bottom-nav";
 import { ThemedView } from "@/src/components/ui/themed-view";
 import { styles } from "@/src/screens/styles/explore.styles";
+import { useRouter } from "expo-router";
 import { useState } from "react";
-import { FlatList, Text, TextInput, View, type ViewStyle } from "react-native";
+import {
+  FlatList,
+  Pressable,
+  Text,
+  TextInput,
+  View,
+  type ViewStyle,
+} from "react-native";
 
 const doses = [
   {
     id: "1",
     name: "BCG",
-    status: "Tomada",
+    status: "Concluida",
     local: "UBS João Elísio Holanda",
     data: "12/05/1994",
   },
   {
     id: "2",
     name: "Hepatite B",
-    status: "Tomada",
+    status: "Concluida",
     local: "UBS Centro",
     data: "15/08/2024",
   },
@@ -43,7 +51,7 @@ const doses = [
   {
     id: "6",
     name: "DTP",
-    status: "Tomada",
+    status: "Concluida",
     local: "UBS Centro",
     data: "15/08/2024",
   },
@@ -65,7 +73,7 @@ const doses = [
 
 function badgeStyle(status: string): ViewStyle {
   const map: Record<string, string> = {
-    Tomada: "#E8F6EF",
+    Concluida: "#E8F6EF",
     Pendente: "#FFF3E6",
     Agendada: "#E6F1FB",
     Expirada: "#FCEBEB",
@@ -80,7 +88,7 @@ function badgeStyle(status: string): ViewStyle {
 
 function badgeTextColor(status: string): string {
   const map: Record<string, string> = {
-    Tomada: "#0F6E56",
+    Concluida: "#0F6E56",
     Pendente: "#854F0B",
     Agendada: "#185FA5",
     Expirada: "#A32D2D",
@@ -113,6 +121,7 @@ function DoseItem({ item }: { item: (typeof doses)[0] }) {
 
 export function ExploreScreen() {
   const [searchText, setSearchText] = useState("");
+  const router = useRouter();
 
   const filteredDoses = doses.filter((dose) =>
     dose.name.toLowerCase().includes(searchText.toLowerCase()),
@@ -120,6 +129,9 @@ export function ExploreScreen() {
 
   return (
     <ThemedView style={styles.container}>
+      <Pressable style={styles.backButton} onPress={() => router.back()}>
+        <Text style={styles.backButtonText}>Voltar</Text>
+      </Pressable>
       <Text style={styles.title}>Minhas Doses</Text>
 
       <TextInput
