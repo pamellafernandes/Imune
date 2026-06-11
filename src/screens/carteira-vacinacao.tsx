@@ -71,7 +71,7 @@ const CARTEIRA_VACINAS: VacinaCarteira[] = [
 ];
 
 const user = {
-  nome: "Marcelo Oliveira",
+  nome: "Marcelo Brito",
   dataNascimento: "10/08/1990",
   cpf: "123.456.789-00",
 };
