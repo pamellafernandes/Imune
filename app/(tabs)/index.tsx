@@ -1,3 +1,3 @@
-import { HomeTabScreen } from "@/src/screens/home-tab";
+import LoginScreen from "../login";
 
-export default HomeTabScreen;
+export default LoginScreen;

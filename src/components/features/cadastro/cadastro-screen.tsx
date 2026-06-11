@@ -81,7 +81,7 @@ export function CadastroScreen() {
 
       <Pressable
         style={styles.secondaryButton}
-        onPress={() => router.push("/")}
+        onPress={() => router.push("/login")}
       >
         <Text style={styles.secondaryButtonText}>Voltar ao login</Text>
       </Pressable>

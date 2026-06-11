@@ -5,12 +5,12 @@ import DateTimePicker from "@react-native-community/datetimepicker";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import React, { useState } from "react";
 import {
-    Platform,
-    Pressable,
-    SafeAreaView,
-    ScrollView,
-    Text,
-    View,
+  Platform,
+  Pressable,
+  SafeAreaView,
+  ScrollView,
+  Text,
+  View,
 } from "react-native";
 
 interface VacinaOption {
@@ -111,6 +111,7 @@ export function AgendarVacinaScreen() {
         <ScrollView
           style={styles.scrollView}
           showsVerticalScrollIndicator={false}
+          contentContainerStyle={{ paddingBottom: 20 }}
         >
           {/* Seleção de Vacina */}
           <View style={styles.section}>

@@ -4,6 +4,7 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#E8B9F8",
+    paddingHorizontal: 20,
   },
   safeArea: {
     flex: 1,
@@ -11,6 +12,7 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   header: {
+    paddingTop: Platform.select({ ios: 50, android: 40, default: 40 }),
     marginBottom: 24,
   },
   backButton: {

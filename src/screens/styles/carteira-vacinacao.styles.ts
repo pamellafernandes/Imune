@@ -1,0 +1,221 @@
+import { Platform, StyleSheet } from "react-native";
+
+export const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#E8B9F8",
+  },
+  header: {
+    paddingTop: Platform.select({ ios: 50, android: 40, default: 40 }),
+    paddingHorizontal: 20,
+    marginBottom: 24,
+  },
+  backButton: {
+    alignSelf: "flex-start",
+    backgroundColor: "rgba(255,255,255,0.8)",
+    paddingHorizontal: 16,
+    paddingVertical: 10,
+    borderRadius: 16,
+    marginBottom: 16,
+  },
+  backButtonText: {
+    color: "#4B367C",
+    fontWeight: "700",
+  },
+  title: {
+    fontSize: 32,
+    fontWeight: "800",
+    color: "#4B367C",
+    marginBottom: 8,
+  },
+  subtitle: {
+    fontSize: 14,
+    color: "#4B367C",
+  },
+  listContent: {
+    paddingHorizontal: 20,
+    paddingBottom: 100,
+  },
+  userCard: {
+    backgroundColor: "#FFFFFF",
+    borderRadius: 16,
+    padding: 20,
+    marginBottom: 16,
+    borderLeftWidth: 4,
+    borderLeftColor: "#8B5CF6",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.08,
+    shadowRadius: 12,
+    elevation: 4,
+  },
+  userLabel: {
+    fontSize: 11,
+    fontWeight: "700",
+    color: "#888888",
+    textTransform: "uppercase",
+    marginBottom: 4,
+  },
+  userName: {
+    fontSize: 20,
+    fontWeight: "800",
+    color: "#4B367C",
+    marginBottom: 16,
+  },
+  userInfo: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    gap: 16,
+  },
+  userInfoItem: {
+    flex: 1,
+  },
+  userInfoLabel: {
+    fontSize: 10,
+    fontWeight: "600",
+    color: "#888888",
+    marginBottom: 4,
+  },
+  userInfoValue: {
+    fontSize: 12,
+    fontWeight: "700",
+    color: "#4B367C",
+  },
+  progressCard: {
+    backgroundColor: "#FFFFFF",
+    borderRadius: 16,
+    padding: 20,
+    marginBottom: 24,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.08,
+    shadowRadius: 12,
+    elevation: 4,
+  },
+  progressHeader: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: 12,
+  },
+  progressTitle: {
+    fontSize: 14,
+    fontWeight: "700",
+    color: "#4B367C",
+  },
+  progressPercentage: {
+    fontSize: 24,
+    fontWeight: "800",
+    color: "#8B5CF6",
+  },
+  progressBar: {
+    height: 8,
+    backgroundColor: "#E0E0E0",
+    borderRadius: 4,
+    overflow: "hidden",
+    marginBottom: 12,
+  },
+  progressFill: {
+    height: "100%",
+    backgroundColor: "#8B5CF6",
+  },
+  alertText: {
+    fontSize: 12,
+    fontWeight: "600",
+    color: "#F59E0B",
+  },
+  vacinasTitle: {
+    fontSize: 16,
+    fontWeight: "700",
+    color: "#4B367C",
+    marginBottom: 12,
+  },
+  vacinaItem: {
+    backgroundColor: "#FFFFFF",
+    borderRadius: 12,
+    marginBottom: 12,
+    overflow: "hidden",
+    borderWidth: 1,
+    borderColor: "#E0E0E0",
+  },
+  vacinaHeader: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingHorizontal: 16,
+    paddingVertical: 14,
+  },
+  vacinaNameContainer: {
+    flex: 1,
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 10,
+  },
+  vacinaNome: {
+    fontSize: 15,
+    fontWeight: "700",
+    color: "#4B367C",
+  },
+  obrigatoriaLabel: {
+    fontSize: 9,
+    fontWeight: "700",
+    color: "#FFFFFF",
+    backgroundColor: "#8B5CF6",
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 8,
+  },
+  expandIcon: {
+    fontSize: 12,
+    color: "#4B367C",
+    fontWeight: "700",
+  },
+  dosesContainer: {
+    borderTopWidth: 1,
+    borderTopColor: "#F0F0F0",
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    backgroundColor: "#F9F7FF",
+  },
+  doseRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: 10,
+  },
+  doseInfo: {
+    flex: 1,
+  },
+  doseNumber: {
+    fontSize: 13,
+    fontWeight: "700",
+    color: "#4B367C",
+    marginBottom: 4,
+  },
+  doseDate: {
+    fontSize: 11,
+    color: "#888888",
+    fontWeight: "500",
+  },
+  doseBadge: {
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 8,
+  },
+  doseBadgeCompleto: {
+    backgroundColor: "#D1FAE5",
+  },
+  doseBadgePendente: {
+    backgroundColor: "#FEF3C7",
+  },
+  doseBadgeText: {
+    fontSize: 11,
+    fontWeight: "700",
+  },
+  doseBadgeTextoCompleto: {
+    color: "#10B981",
+  },
+  doseBadgeTextoPendente: {
+    color: "#F59E0B",
+  },
+});

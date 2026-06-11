@@ -11,6 +11,8 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   header: {
+    paddingTop: Platform.select({ ios: 50, android: 40, default: 40 }),
+    paddingHorizontal: 20,
     marginBottom: 24,
   },
   backButton: {
@@ -37,7 +39,8 @@ export const styles = StyleSheet.create({
   },
   scrollView: {
     flex: 1,
-    marginBottom: 16,
+    paddingHorizontal: 20,
+    paddingBottom: 80,
   },
   section: {
     marginBottom: 24,
