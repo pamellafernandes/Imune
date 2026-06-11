@@ -3,7 +3,7 @@ import { usePathname, useRouter } from "expo-router";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 
 const tabs = [
-  { label: "Início", route: "/", icon: "house.fill" },
+  { label: "Início", route: "/home", icon: "house.fill" },
   { label: "Doses", route: "/explore", icon: "syringe.fill" },
   { label: "Postos", route: "/carteira", icon: "cross.fill" },
 ] as const;
