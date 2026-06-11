@@ -4,21 +4,21 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#E8B9F8",
-    paddingHorizontal: 20,
   },
   safeArea: {
     flex: 1,
     paddingTop: Platform.select({ ios: 50, android: 40, default: 40 }),
-    paddingHorizontal: 20,
+    paddingHorizontal: 16,
   },
   header: {
     paddingTop: Platform.select({ ios: 50, android: 40, default: 40 }),
     marginBottom: 24,
+    paddingHorizontal: 20,
   },
   backButton: {
     alignSelf: "flex-start",
     backgroundColor: "rgba(255,255,255,0.8)",
-    paddingHorizontal: 16,
+    paddingHorizontal: 20,
     paddingVertical: 10,
     borderRadius: 16,
     marginBottom: 16,
