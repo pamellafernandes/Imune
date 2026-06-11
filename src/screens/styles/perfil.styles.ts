@@ -40,6 +40,7 @@ export const styles = StyleSheet.create({
   infoCard: {
     backgroundColor: "#FFFFFF",
     borderRadius: 24,
+    margin: 16,
     padding: 24,
     marginBottom: 16,
     shadowColor: "#000",
